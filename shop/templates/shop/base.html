@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Font Awesome -->
+		<script src="https://kit.fontawesome.com/3dc89e56d7.js" crossorigin="anonymous"></script>
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+		<title>Channel</title>
+	</head>
+
+	<body>
+		<!-- Navigation -->
+		<header>
+			<nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">	
+				<div class="container">
+					<a class="navbar-brand" href="#">
+						<img src="{% static 'images/logo.png' %}" width="80" height="40" alt="logo">
+					</a>
+					
+
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+				
+					<div class="collapse navbar-collapse" id="navbarCollapse">
+						<form class="form-inline mt-2 mt-md-0 ml-auto">
+							<input class="form-control" type="text" placeholder="Search products, brands and categories" aria-label="Search">
+							<button type="submit" class="btn ml-2 my-sm-0 my-2 btn-success">Search</button>
+						</form>
+
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="far fa-user"></i> Login</a>
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="{% url 'login' %}">
+										<button type="button" class="btn btn-primary">LOGIN</button>
+									</a>
+									<div class="dropdown-divider">OR</div>
+									<a class="dropdown-item" href="{% url 'signup' %}" style="color: orange;">CREATE AN ACCOUNT</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="#">Accounts</a>
+									<a class="dropdown-item" href="#">Orders</a>
+									<a class="dropdown-item" href="#">Saved Items</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="far fa-question-circle"></i> Help</a>
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="#">How to shop on Channel?</a>
+									<a class="dropdown-item" href="#">How to pay on Channel?</a>
+									<a class="dropdown-item" href="#">How to use Voucher?</a>
+									<a class="dropdown-item" href="#">Contact us</a>
+								</div>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link active" href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<!-- Page Content -->
+		<main role="main flex-shrink-0">
+			<div class="container">
+				{% block content %}
+
+
+
+				{% endblock %}
+			</div>
+		</main>
+
+		<!-- Footer -->
+		<footer class="footer ml-auto mt-auto py-3 bg-dark fixed-bottom">
+			<center>
+				<div class="container">
+					<span class="text-muted">
+						<a href="#"><i class="fab fa-facebook"></i></a></li>
+						<a href="#"><i class="fab fa-twitter"></i></a></li>
+						<a href="#"><i class="fab fa-linkedin"></i></a></li>
+						<p cl>&copy;2020</p>
+					</span>
+				</div>
+			</center>			
+		</footer>
+
+		<!-- Jquery, JS Popper and Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		
+	</body>
+</html>
