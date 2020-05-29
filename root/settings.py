@@ -16,9 +16,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '7x4sy#kqi^!wdwu2o)_43u$!^na%(%vud522*s@)@lfkb=k7+5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'c-hannel.herokuapp.com']
 
 
 # Application definition
@@ -76,8 +76,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'channel',
-        'USER': '',
-        'PASSWORD': '',
+        'USER': 'believe',
+        'PASSWORD': 'channel',
         'HOST': 'localhost',
         'PORT': '',
     }
