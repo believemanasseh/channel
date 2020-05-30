@@ -52,7 +52,7 @@
 
 				<form class="form-signin" method="POST" action="">
 					{% csrf_token %}
-					<img src="{% static 'images/logo.png' %}" width="150" height="100" alt="logo">
+					<a href="{% url 'shop:home' %}"><img src="{% static 'images/logo.png' %}" width="150" height="100" alt="logo"></a>
 					<div class="input-group mt-3 mb-3">
 						<div class="input-group-prepend">
 						  <span class="input-group-text"><i class="fas fa-user"></i></span>
