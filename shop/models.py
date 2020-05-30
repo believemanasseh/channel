@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from datetime import date
 from accounts.models import CustomUser
+from .constants import CATEGORY, STATUS
 
 class Customer(models.Model):
 	user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
@@ -15,40 +16,32 @@ class Customer(models.Model):
 	def __str__(self):
 		return self.user.username
 
-class Tag(models.Model):
-	name = models.BooleanField(blank=True)
-
 class Product(models.Model):
-	CATEGORY = (
-		('Books', 'Books'),
-		('Technology', 'Technology'),
-		('Fashion', 'Fashion'),
-		)
-
-	tags = models.ManyToManyField(Tag)
-	name = models.CharField(max_length=100, null=True)
+	name  = models.CharField(max_length=100, null=True)
 	description = models.CharField(max_length=100, null=True, blank=True)
 	category = models.CharField(max_length=100, null=True, choices=CATEGORY)
 	price = models.FloatField(null=True)
-	date_created = models.DateTimeField(auto_now_add=True, null=True)
+	discount = models.FloatField(null=True)
+	date_created = models.DateTimeField(auto_now_add=True)
+
+	def __str__(self):
+		return self.name
+
+class OrderItem(models.Model):
+	product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+	quantity = models.IntegerField(null=True)
 
 	def __str__(self):
 		return self.name
 
 class Order(models.Model):
-	STATUS = (
-		('Pending', 'Pending'),
-		('Delivered', 'Delivered'),
-		)
-
 	customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
-	product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+	items = models.ManyToManyField(OrderItem)
 	status = models.CharField(max_length=100, null=True, choices=STATUS)
 	total_amount = models.FloatField(null=True)
-	order_date = models.DateTimeField(auto_now_add=True, null=True)
+	start_date = models.DateTimeField(auto_now_add=True, null=True)
+	ordered_date = models.DateTimeField(auto_now_add=True, null=True)
 
-class OrderItem(models.Model):
-	order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
-	product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
-	quantity = models.IntegerField(null=True)
-	discount = models.FloatField(null=True)
+	def __str__(self):
+		return self.user.username
+
