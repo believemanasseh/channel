@@ -1,7 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.generic import ListView, DetailView
 
-from . import models
+from .models import Product, Order
 
-def homepage(request):
-	return render(request, 'shop/homepage.html')
+class HomepageView(ListView):
+	model = Product
+	template_name = 'shop/homepage.html'
+
+class ProductsView(ListView):
+	model = Product
+	template_name = 'shop/products.html'
+
+class CheckoutView(DetailView):
+	model = Order
+	template_name = 'shop/checkout.html'
