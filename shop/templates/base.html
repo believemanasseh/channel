@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
 
 		<!-- Font Awesome -->
 		<script src="https://kit.fontawesome.com/3dc89e56d7.js" crossorigin="anonymous"></script>
@@ -16,22 +16,6 @@
 		<link type="text/css" rel="stylesheet" href="{% static 'css/homepage.css' %}"> 
 
 		<title>Channel</title>
-		<style>
-			main {
-				margin: 100px;
-			}
-
-			.btn_color {
-				background-color: rgb(255, 154, 48);
-				color: #ffffff;
-			}
-
-			.btn_color:hover {
-				background-color: rgb(236, 135, 46);	
-				color: #ffffff;
-				opacity: 1.0;
-			}
-		</style>
 	</head>
 
 	<body>
@@ -50,12 +34,23 @@
 
 				
 					<div class="collapse navbar-collapse" id="navbarCollapse">
-						<form class="form-inline mt-2 mt-md-0 ml-auto">
+						<form class="form-inline mt-2 mt-md-0 ml-auto" id="navBarSearchForm">
 							<input class="form-control" type="text" placeholder="Search products, brands and categories" aria-label="Search">
 							<button type="submit" class="btn ml-2 my-sm-0 my-2 btn_color">SEARCH</button>
 						</form>
 
 						<ul class="navbar-nav ml-auto">
+							{% if user.is_authenticated %}
+							<li class="nav-item">
+								<a href="{% url 'shop:home' %}" class="nav-link active" style="color:rgb(255, 154, 48);">Welcome, {{user.username}}</a>
+							</li>
+							<li>
+								<a href="{% url 'logout' %}" class="nav-link active"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link active" href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
+							</li>
+							{% else %}
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="far fa-user"></i> Login</a>
 								<div class="dropdown-menu">
@@ -63,13 +58,14 @@
 										<button type="button" class="btn btn-primary">LOGIN</button>
 									</a>
 									<div class="dropdown-divider">OR</div>
-									<a class="dropdown-item" href="{% url 'signup' %}" style="color: orange;">CREATE AN ACCOUNT</a>
+									<a class="dropdown-item" href="{% url 'register' %}" style="color: orange;">CREATE AN ACCOUNT</a>
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="#">Accounts</a>
 									<a class="dropdown-item" href="#">Orders</a>
 									<a class="dropdown-item" href="#">Saved Items</a>
 								</div>
 							</li>
+
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="far fa-question-circle"></i> Help</a>
 								<div class="dropdown-menu">
@@ -82,6 +78,7 @@
 							<li class="nav-item">
 								<a class="nav-link active" href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
 							</li>
+							{% endif %}
 						</ul>
 					</div>
 				</div>
@@ -89,10 +86,9 @@
 		</header>
 
 		<!-- Page Content -->
-		<main role="main flex-shrink-0 h-100">
+		<main>
 				{% block content %}
 
-				{% include 'shop/homepage.html' %}
 
 
 				{% endblock %}
@@ -100,18 +96,15 @@
 		</main>
 
 		<!-- Footer -->
-		<footer class="footer ml-auto mt-auto py-3 bg-dark" style="position: static;">
-			<center>
-				<div class="container">
-					<span class="text-muted">
-						<a href="#"><i class="fab fa-facebook"></i></a></li>
-						<a href="#"><i class="fab fa-twitter"></i></a></li>
-						<a href="#"><i class="fab fa-linkedin"></i></a></li>
-						<p cl>&copy;2020</p>
-					</span>
-				</div>
-			</center>			
-		</footer>
+		<div class="bg-dark footer text-center alg" style="margin-bottom:-1;">
+			<div class="container">
+				<span class="text-muted p-2">
+					<a href="#"><i class="fab fa-twitter fa-1x mt-3"></i></a></li>
+					<a href="#"><i class="fab fa-linkedin fa-1x"></i></a></li>
+					<p cl>&copy;2020</p>
+				</span>
+			</div>			
+		</div>
 
 		<!-- Jquery, JS Popper and Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

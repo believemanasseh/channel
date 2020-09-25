@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 
 from accounts.forms import CustomUserForm
 
-def signup_view(request):
+def register_view(request):
 	form = CustomUserForm()
 	if request.method == "POST":
 		form = CustomUserForm(request.POST)
@@ -17,8 +17,9 @@ def signup_view(request):
 			return redirect('login')
 		
 	context = {'form': form}
-	return render(request, 'registration/signup.html', context)
+	return render(request, 'registration/register.html', context)
 
+"""
 def login_view(request):
 	if request.method == "POST":
 		username = request.POST['username']
@@ -27,7 +28,7 @@ def login_view(request):
 		# authenticate user
 		user = authenticate(request, username=username, password=password)
 
-		if user is not None:
+		if user.is_active():
 			login(request, user)
 			return redirect('home')
 		else:
@@ -35,7 +36,9 @@ def login_view(request):
 
 	context = {}
 	return render(request, 'registration/login.html', context)
-
+"""
+'''
 def logout_user(request):
 	logout(request)
 	return redirect('login')
+'''

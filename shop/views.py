@@ -6,12 +6,12 @@ from .models import Product, Order
 
 class HomepageView(ListView):
 	model = Product
-	template_name = 'shop/homepage.html'
+	template_name = 'homepage.html'
 
 class ProductsView(ListView):
 	model = Product
-	template_name = 'shop/products.html'
+	template_name = 'products.html'
 
 class CheckoutView(DetailView):
 	model = Order
-	template_name = 'shop/checkout.html'
+	template_name = 'checkout.html'

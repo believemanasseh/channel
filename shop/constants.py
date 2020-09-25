@@ -1,15 +1,9 @@
 CATEGORY = (
-	('Phones & Tablets', 'Phones & Tablets'),
-	('Electronics', 'Electronics'),
+	('Mobile Phones', 'Mobile Phones'),
 	('Fashion', 'Fashion'),
 	('Computing', 'Computing'),
-	('Gaming', 'Gaming'),
-	('Home & Offices', 'Home & Offices'),
 	('Health & Beauty', 'Health & Beauty'),
-	('Supermarket', 'Supermarket'),
-	('Stay Safe', 'Stay Safe'),
 	('Library', 'Library'),
-	('Others', 'Others'),
 )
 
 STATUS = (

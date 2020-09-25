@@ -1,43 +1,27 @@
-/* CSS file for homepage.html */
-
-.flex_container {
-	/*background-color:;*/
-	/*color: #000000;*/
-	font-size: 14px;
-	/*margin: 14px;
-	padding: 14px;*/
-	text-align: left;
-	white-space: nowrap;
-	overflow: hidden;
+.nav-tabs {
+	border-color: #000000;
+	background-color: #000000;
 }
 
-.txt-color {
-	color: rgb(0, 0, 0);
+.btn_color {
+	background-color: rgb(255, 154, 48);
+	color: #ffffff;
 }
 
-.txt-color:hover {
-	color: rgb(255, 154, 48);
+.btn_color:hover {
+	background-color: rgb(236, 135, 46);	
+	color: #ffffff;
+	opacity: 1.0;
 }
 
-.column {
-  float: left;
-  justify-content: center;
-  font-size: 0.875em;
+#navBarSearchForm input[type=text]{
+	width: 430px !important;
 }
 
-/* Left and right column */
-.column.side {
-  width: 25%;
+#nav-links > li > a {
+	color: rgb(180, 180, 180) !important;
 }
 
-/* Middle column */
-.column.middle {
-  width: 50%;
-}
-
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column.side, .column.middle {
-    width: 100%;
-  }
+#nav-links > li > a:hover {
+	background-color: rgb(236, 135, 46);
 }

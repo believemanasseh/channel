@@ -5,7 +5,20 @@ import sys
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'root.settings')
+
+    debug = os.getenv('DEBUG', None) # grabs DEBUG from settingss
+    settings = 'root.local'
+
+    try:
+        if debug is False and debug is not None:
+            settings = 'root.production'
+        else:
+            settings = 'root.local'
+    except ModuleNotFoundError:
+        settings = 'root.local'
+
+
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings)
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
